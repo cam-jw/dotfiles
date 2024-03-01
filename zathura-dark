@@ -1,0 +1,37 @@
+# zathurarc-dark updated with Gruvbox dark colors from Alacritty
+
+set notification-error-bg       "#282828" # Alacritty background
+set notification-error-fg       "#cc241d" # Alacritty bright red
+set notification-warning-bg     "#282828" # Alacritty background
+set notification-warning-fg     "#e8bd58" # Alacritty yellow
+set notification-bg             "#282828" # Alacritty background
+set notification-fg             "#ebdbb2" # Alacritty foreground
+
+set completion-group-bg         "#282828" # Alacritty background
+set completion-group-fg         "#ebdbb2" # Alacritty foreground
+set completion-bg               "#282828" # Alacritty background
+set completion-fg               "#a89984" # Alacritty normal white
+set completion-highlight-bg     "#928374" # Alacritty bright black
+set completion-highlight-fg     "#ebdbb2" # Alacritty bright white
+
+set index-bg                    "#282828" # Alacritty background
+set index-fg                    "#a89984" # Alacritty normal white
+set index-active-bg             "#928374" # Alacritty bright black
+set index-active-fg             "#ebdbb2" # Alacritty bright white
+
+set inputbar-bg                 "#282828" # Alacritty background
+set inputbar-fg                 "#ebdbb2" # Alacritty foreground
+
+set statusbar-bg                "#282828" # Alacritty background
+set statusbar-fg                "#ebdbb2" # Alacritty foreground
+
+set highlight-color             "#b16286" # Alacritty magenta
+set highlight-active-color      "#83a598" # Alacritty bright blue
+
+set default-bg                  "#282828" # Alacritty background
+set default-fg                  "#ebdbb2" # Alacritty foreground
+
+set recolor                     true
+set recolor-lightcolor          "#ebdbb2" # Alacritty foreground
+set recolor-darkcolor           "#282828" # Alacritty background
+
