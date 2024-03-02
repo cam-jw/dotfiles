@@ -28,6 +28,9 @@ opt.relativenumber = false
 opt.scrolloff = 8
 opt.linebreak = true
 
+-- cmd height
+opt.cmdheight = 0
+
 -- indentation
 
 -- o.expandtab = true              -- convert tabs to spaces
