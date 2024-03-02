@@ -58,6 +58,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 #sed -i'.backup' '/^plugins=(/ s/)$/ zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
 
 # Apply configurations and change default shell to zsh
+cp $HOME/dotfiles/.zshrc $HOME/.zshrc
 source $HOME/.zshrc
 chsh -s $(which zsh)
 
