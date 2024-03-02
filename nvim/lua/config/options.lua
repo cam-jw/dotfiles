@@ -23,7 +23,7 @@ opt.foldenable = false
 -- vim.opt.undodir = vim.fn.expand('~/.nvim/undodir')
 
 -- scrolling
-opt.number = false
+opt.number = true
 opt.relativenumber = false
 opt.scrolloff = 8
 opt.linebreak = true
@@ -31,9 +31,9 @@ opt.linebreak = true
 -- indentation
 
 -- o.expandtab = true              -- convert tabs to spaces
--- o.tabstop = 4                   -- insert 4 spaces for a tab
+--o.tabstop = 4 -- insert 4 spaces for a tab
 -- o.shiftwidth = 4                -- the number of spaces inserted for each indentation
--- o.smartindent = true
+--o.smartindent = true
 
 -- windows
 -- vim.o.splitbelow = true
