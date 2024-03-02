@@ -29,6 +29,7 @@ brew install tree
 brew install amethyst
 brew install fzf
 brew install nvim
+brew install node
 
 # ubuntu packages apt
 sudo apt update
