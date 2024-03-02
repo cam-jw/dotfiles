@@ -1,66 +1,77 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 
-# env variables
-export XDG_CONFIG_HOME="$HOME"/.config
-export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+# Define environment variables
+XDG_CONFIG_HOME="$HOME/.config"
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+DOTFILES_DIR="$(pwd)" # Assuming current directory contains dotfiles
 
-# create directories
-mkdir -p "$XDG_CONFIG_HOME"/bash
-mkdir -p "$XDG_CONFIG_HOME"/alacritty
-mkdir -p "$XDG_CONFIG_HOME"/alacritty/themes
+# Function to create necessary directories
+create_directories() {
+  mkdir -p "$XDG_CONFIG_HOME/bash"
+  mkdir -p "$XDG_CONFIG_HOME/alacritty"
+  mkdir -p "$XDG_CONFIG_HOME/alacritty/themes"
+  mkdir -p "$XDG_CONFIG_HOME/nvim"
+}
 
-# install alacritty theme
-git clone https://github.com/alacritty/alacritty-theme "$XDG_CONFIG_HOME"/alacritty/themes
+# Function to clone repositories
+clone_repositories() {
+  git clone https://github.com/alacritty/alacritty-theme "$XDG_CONFIG_HOME/alacritty/themes"
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
+  git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+}
 
-# Symbolic links
-ln -sf "$PWD/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.toml
-ln -sf "$PWD/alacritty_gruvbox_dark.toml" "$XDG_CONFIG_HOME/alacritty/themes/themes/gruvbox_dark.toml"
-ln -sf "$PWD/.bash_profile" "$HOME"/.bash_profile
-ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
-ln -sf "$PWD/.inputrc" "$HOME"/.inputrc
-ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
-ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
+# Function to create symbolic links
+create_symbolic_links() {
+  ln -sf "$DOTFILES_DIR/alacritty.toml" "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
+  ln -sf "$DOTFILES_DIR/alacritty_gruvbox_dark.toml" "$XDG_CONFIG_HOME/alacritty/themes/gruvbox_dark.toml"
+  ln -sf "$DOTFILES_DIR/.bash_profile" "$HOME/.bash_profile"
+  ln -sf "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
+  ln -sf "$DOTFILES_DIR/.inputrc" "$HOME/.inputrc"
+  ln -sf "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
+  ln -sf "$DOTFILES_DIR/nvim" "$XDG_CONFIG_HOME/nvim"
+  ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+  ln -sf "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
+}
 
-# Packages
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install --cask alacritty
-brew install bat
-brew install tree
-brew install amethyst
-brew install fzf
-brew install nvim
-brew install node
+# Function to install packages on MacOS
+install_macos_packages() {
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  brew install --cask alacritty
+  brew install bat tree fzf nvim node neovim lazygit
+}
 
-# ubuntu packages apt
-sudo apt update
-sudo apt install ripgrep gh
+# Function to install packages on Ubuntu
+install_ubuntu_packages() {
+  sudo apt update
+  sudo apt install -y ripgrep gh gcc g++ unzip fd-find fzf kubectl kubectx neovim
+}
 
-# ubuntu apt neovim setup
-sudo apt install gcc g++ unzip
+# Function to install Oh-My-Zsh
+install_oh_my_zsh() {
+  rm -rf "$HOME/.oh-my-zsh/"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+}
 
-# ubuntu brew for vim and neovim setup
-sudo apt install fd-find fzf kubectl kubectx
+# Function to set default shell to zsh
+set_default_shell() {
+  chsh -s "$(which zsh)"
+}
 
-# ubuntu brew for neovim setup
-brew install neovim lazygit
+# Main function to orchestrate setup
+main() {
+  create_directories
+  clone_repositories
+  create_symbolic_links
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    install_macos_packages
+  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    install_ubuntu_packages
+  fi
+  install_oh_my_zsh
+  set_default_shell
+  printf "Installation and configuration complete. Please restart your terminal or source ~/.zshrc\n"
+}
 
-# Installing Oh-My-Zsh
-rm -rf $HOME/.oh-my-zsh/
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+main "$@"
 
-# Installing Powerlevel10k for Oh-My-Zsh
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-cp $PWD/.p10k.zsh $HOME/.p10k.zsh
-
-# zsh-syntax-highlighting and zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-
-#sed -i'.backup' '/^plugins=(/ s/)$/ zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
-
-# Apply configurations and change default shell to zsh
-ln -sf $HOME/dotfiles/.zshrc $HOME/.zshrc
-source $HOME/.zshrc
-chsh -s $(which zsh)
-
-echo "Installation and configuration complete. Please restart your terminal or source ~/.zshrc"
