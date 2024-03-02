@@ -1,26 +1,9 @@
-#
-# ~/.bashrc
-#
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 # Set to superior editing mode
 set -o vi
 
-# ~~~~~~~~~~~~~~~ Environment Variables ~~~~~~~~~~~~~~~~~~~~~~~~
-
-#export DOTFILES="$GHREPOS/dotfiles"
-#export SCRIPTS="$DOTFILES/scripts"
-
-# ~~~~~~~~~~~~~~~ History ~~~~~~~~~~~~~~~~~~~~~~~~
-
-#export HISTFILE=~/.histfile
-#export HISTSIZE=25000
-#export SAVEHIST=25000
-#export HISTCONTROL=ignorespace
-
-# ~~~~~~~~~~~~~~~ Aliases ~~~~~~~~~~~~~~~~~~~~~~~~
 alias v=nvim
 
 # cd
@@ -92,11 +75,12 @@ alias ev='cd ~/.config/nvim/ && v init.lua'
 alias sz='source ~/.zshrc'
 alias sb='source ~/.bashrc'
 alias s='source'
-# fuzzy searching with fzf
+
+# fuzzy file searching with fzf -> nvim
 alias fp="fzf --preview 'bat --style=plain --color=always --line-range :500 {}'"
 alias vf='v $(fp)'
 
-#pdf reading
+# pdf reading
 alias pdf='zathura'
 alias fpdf="find . -type f -iname '*.pdf' | fzf --preview 'pdftotext {} - | head -n 100'"
 alias pdfp='zathura $(fpdf)'
@@ -104,10 +88,3 @@ alias pdfp='zathura $(fpdf)'
 # env variables
 export VISUAL=nvim
 export EDITOR=nvim
-
-# brew bash completion
-#if [[ "$OSTYPE" == "darwin"* ]]; then
-#	[[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
-#else
-#	[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-#fi

@@ -1,19 +1,18 @@
-#!/usr/bin/env/zsh
+#!/usr/bin/env zsh
 
-# This is the setup script for my config. The idea is to be able to run
-# this after cloning the repo on a Mac or Ubuntu (WSL) system and be up
-# and running very quickly.
+# env variables
+export XDG_CONFIG_HOME="$HOME"/.config
+export ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 
 # create directories
-export XDG_CONFIG_HOME="$HOME"/.config
 mkdir -p "$XDG_CONFIG_HOME"/bash
 mkdir -p "$XDG_CONFIG_HOME"/alacritty
 mkdir -p "$XDG_CONFIG_HOME"/alacritty/themes
 
+# install alacritty theme
 git clone https://github.com/alacritty/alacritty-theme "$XDG_CONFIG_HOME"/alacritty/themes
 
 # Symbolic links
-# ln -s ./.amethyst.yml "$HOME"/.amethyst.yml
 ln -sf "$PWD/alacritty.toml" "$XDG_CONFIG_HOME"/alacritty/alacritty.toml
 ln -sf "$PWD/.bash_profile" "$HOME"/.bash_profile
 ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
@@ -39,24 +38,24 @@ sudo apt install gcc g++ unzip
 
 # ubuntu brew for vim and neovim setup
 sudo apt install fd-find fzf kubectl kubectx
-sudo snap install k9s
 
 # ubuntu brew for neovim setup
-brew install neovim go lazygit
+brew install neovim lazygit
 
 # Installing Oh-My-Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+rm -rf $HOME/.oh-my-zsh/
+#(KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)")
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Installing Powerlevel10k for Oh-My-Zsh
-rm -rf ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-# Set ZSH theme to Powerlevel10k
-sed -i 's/ZSH_THEME=".*"/ZSH_THEME="powerlevel10k\/powerlevel10k"/g' ~/.zshrc
-
-# Copying configuration files for Oh-My-Zsh and Powerlevel10k
-#cp ~/oh-my-zsh/* $ZSH_CUSTOM
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 cp $PWD/.p10k.zsh $HOME/.p10k.zsh
+
+# zsh-syntax-highlighting and zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+#sed -i'.backup' '/^plugins=(/ s/)$/ zsh-autosuggestions zsh-syntax-highlighting)/' ~/.zshrc
 
 # Apply configurations and change default shell to zsh
 source $HOME/.zshrc
