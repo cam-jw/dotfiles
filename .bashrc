@@ -74,6 +74,7 @@ alias et='v ~/.tmux.conf'
 alias ev='cd ~/.config/nvim/ && v init.lua'
 alias sz='source ~/.zshrc'
 alias sb='source ~/.bashrc'
+alias st='tmux source ~/.tmux.conf'
 alias s='source'
 
 # fuzzy file searching with fzf -> nvim

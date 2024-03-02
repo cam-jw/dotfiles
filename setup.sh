@@ -45,7 +45,6 @@ brew install neovim lazygit
 
 # Installing Oh-My-Zsh
 rm -rf $HOME/.oh-my-zsh/
-#(KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)")
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Installing Powerlevel10k for Oh-My-Zsh
