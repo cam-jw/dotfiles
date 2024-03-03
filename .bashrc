@@ -89,3 +89,4 @@ alias pdfp='zathura $(fpdf)'
 # env variables
 export VISUAL=nvim
 export EDITOR=nvim
+. "$HOME/.cargo/env"
