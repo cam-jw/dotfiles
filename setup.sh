@@ -37,21 +37,29 @@ create_symbolic_links() {
 	ln -sf "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
 	ln -sf "$DOTFILES_DIR/nvim" "$XDG_CONFIG_HOME/nvim"
 	ln -sf "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
-	# Symlink the .zshrc after Oh-My-Zsh installation to prevent it from being overwritten
-	ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+	ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc" # Symlink .zshrc after Oh-My-Zsh installation to prevent overwrite
 }
 
 # Function to install packages on MacOS
 install_macos_packages() {
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	brew install --cask alacritty
-	brew install bat tree fzf nvim node neovim lazygit
+	brew install bat tree fzf nvim node neovim lazygit viu helix fd ripgrep
 }
 
 # Function to install packages on Ubuntu
 install_ubuntu_packages() {
 	sudo apt update
 	sudo apt install -y ripgrep gh gcc g++ unzip fd-find fzf kubectl kubectx neovim
+
+	# Install helix from PPA
+	sudo add-apt-repository ppa:maveonair/helix-editor -y
+	sudo apt update
+	sudo apt install helix -y
+
+	# Installing additional dependencies: viu, fd, and ripgrep with cargo
+	sudo apt install -y cargo # Necessary for installing packages not available in apt repositories
+	cargo install viu fd-find ripgrep
 }
 
 # Function to set default shell to zsh

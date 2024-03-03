@@ -5,6 +5,7 @@
 set -o vi
 
 alias v=nvim
+alias h=hx
 
 # cd
 alias docs='cd ~/Documents/'
