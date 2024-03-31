@@ -10,29 +10,16 @@ local bg = vim.o.background
 -- Define a palette. Use `palette_extend` to fill unspecified colors
 -- Based on https://github.com/gruvbox-community/gruvbox#palette
 local palette
-if bg == "light" then
-    palette = util.palette_extend({
-        bg = hsluv("#fbf1c7"),
-        fg = hsluv("#3c3836"),
-        rose = hsluv("#9d0006"),
-        leaf = hsluv("#79740e"),
-        wood = hsluv("#b57614"),
-        water = hsluv("#076678"),
-        blossom = hsluv("#8f3f71"),
-        sky = hsluv("#427b58"),
-    }, bg)
-else
-    palette = util.palette_extend({
-        bg = hsluv("#282828"),
-        fg = hsluv("#ebdbb2"),
-        rose = hsluv("#fb4934"),
-        leaf = hsluv("#b8bb26"),
-        wood = hsluv("#fabd2f"),
-        water = hsluv("#83a598"),
-        blossom = hsluv("#d3869b"),
-        sky = hsluv("#83c07c"),
-    }, bg)
-end
+palette = util.palette_extend({
+    bg = hsluv("#282828"),
+    fg = hsluv("#ebdbb2"),
+    rose = hsluv("#ebdbb2"),
+    leaf = hsluv("#ebdbb2"),
+    wood = hsluv("#ebdbb2"),
+    water = hsluv("#ebdbb2"),
+    blossom = hsluv("#ebdbb2"),
+    sky = hsluv("#ebdbb2"),
+}, bg)
 
 -- Generate the lush specs using the generator util
 local generator = require("zenbones.specs")
