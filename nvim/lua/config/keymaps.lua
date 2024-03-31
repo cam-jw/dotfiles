@@ -29,6 +29,7 @@ vim.keymap.set("n", "<leader>rbs", "<cmd>%s/\\//g<CR>", { desc = "Replace Backwa
 
 -- telescope symbols
 vim.keymap.set("n", "<leader>fs", "<cmd>Telescope symbols<cr>", { desc = "Find Symbols" })
+vim.keymap.set("n", "<leader>sf", "<cmd>Telescope find_files<cr>", { desc = "Find Symbols" })
 
 -- convert Current line to title cases
 vim.keymap.set(
