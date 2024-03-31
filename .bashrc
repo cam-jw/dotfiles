@@ -1,6 +1,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+XDG_CONFIG_HOME="$HOME/.config"
+DOTFILES_DIR="~/dotfiles" # Assuming the current directory contains dotfiles
+
 # Set to superior editing mode
 set -o vi
 
@@ -92,3 +95,7 @@ alias pdfp='zathura $(fpdf)'
 export VISUAL=nvim
 export EDITOR=nvim
 . "$HOME/.cargo/env"
+
+# themes
+alias tl='ln -sf ~/dotfiles/alacritty_light.toml $XDG_CONFIG_HOME/alacritty/alacritty.toml'
+alias td='ln -sf ~/dotfiles/alacritty_dark.toml $XDG_CONFIG_HOME/alacritty/alacritty.toml'

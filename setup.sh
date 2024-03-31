@@ -29,7 +29,7 @@ clone_repositories_and_plugins() {
 
 # Function to create symbolic links
 create_symbolic_links() {
-	ln -sf "$DOTFILES_DIR/alacritty.toml" "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
+	ln -sf "$DOTFILES_DIR/alacritty_dark.toml" "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
 	ln -sf "$DOTFILES_DIR/.bash_profile" "$HOME/.bash_profile"
 	ln -sf "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
 	ln -sf "$DOTFILES_DIR/.inputrc" "$HOME/.inputrc"
