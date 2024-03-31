@@ -18,7 +18,7 @@
         },
         "rules": [
           {
-            "description": "Map Command-Shift-X to Ctrl-b x for tmux (close pane)",
+            "description": "Map Command-Shift-' to Ctrl-b % for tmux",
             "manipulators": [
               {
                 "conditions": [
@@ -33,7 +33,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "x",
+                  "key_code": "quote",
                   "modifiers": {
                     "mandatory": [
                       "left_shift",
@@ -49,46 +49,7 @@
                     ]
                   },
                   {
-                    "key_code": "x"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Map Command-Shift-W to Ctrl-b & for tmux (close window)",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^co\\.zeit\\.hyper$",
-                      "^org\\.alacritty$",
-                      "^com\\.googlecode\\.iterm2$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "w",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_shift",
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "b",
-                    "modifiers": [
-                      "left_control"
-                    ]
-                  },
-                  {
-                    "key_code": "7",
+                    "key_code": "quote",
                     "modifiers": [
                       "left_shift"
                     ]
@@ -99,7 +60,7 @@
             ]
           },
           {
-            "description": "Map Command-Shift-N to Ctrl-b c for tmux (new window)",
+            "description": "Map Command-Shift-] to Ctrl-b n",
             "manipulators": [
               {
                 "conditions": [
@@ -114,7 +75,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "n",
+                  "key_code": "l",
                   "modifiers": {
                     "mandatory": [
                       "left_shift",
@@ -130,7 +91,46 @@
                     ]
                   },
                   {
-                    "key_code": "c"
+                    "key_code": "n"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Map Command-Shift-[ to Ctrl-b p",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^co\\.zeit\\.hyper$",
+                      "^org\\.alacritty$",
+                      "^com\\.googlecode\\.iterm2$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "b",
+                    "modifiers": [
+                      "left_control"
+                    ]
+                  },
+                  {
+                    "key_code": "p"
                   }
                 ],
                 "type": "basic"
@@ -180,7 +180,7 @@
             ]
           },
           {
-            "description": "Map Command-Shift-' to Ctrl-b ' for tmux",
+            "description": "Map Command-Shift-T to Ctrl-b c for tmux (new window)",
             "manipulators": [
               {
                 "conditions": [
@@ -195,7 +195,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "quote",
+                  "key_code": "t",
                   "modifiers": {
                     "mandatory": [
                       "left_shift",
@@ -211,7 +211,46 @@
                     ]
                   },
                   {
-                    "key_code": "quote",
+                    "key_code": "c"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Map Command-Shift-W to Ctrl-b & for tmux (close window)",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com\\.apple\\.Terminal$",
+                      "^co\\.zeit\\.hyper$",
+                      "^org\\.alacritty$",
+                      "^com\\.googlecode\\.iterm2$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift",
+                      "left_command"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "b",
+                    "modifiers": [
+                      "left_control"
+                    ]
+                  },
+                  {
+                    "key_code": "7",
                     "modifiers": [
                       "left_shift"
                     ]
@@ -222,7 +261,7 @@
             ]
           },
           {
-            "description": "Map Command-Shift-L to Ctrl-b Right Arrow for tmux",
+            "description": "Map Command-Shift-X to Ctrl-b x for tmux (close pane)",
             "manipulators": [
               {
                 "conditions": [
@@ -237,7 +276,7 @@
                   }
                 ],
                 "from": {
-                  "key_code": "l",
+                  "key_code": "x",
                   "modifiers": {
                     "mandatory": [
                       "left_shift",
@@ -252,6 +291,255 @@
                       "left_control"
                     ]
                   },
+                  {
+                    "key_code": "x"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "vim-preview: map gG (go to first / last page)",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "g"
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "vim-preview: map zoom (9/0/-/=)",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "9"
+                },
+                "to": [
+                  {
+                    "key_code": "9",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "0"
+                },
+                "to": [
+                  {
+                    "key_code": "0",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "hyphen"
+                },
+                "to": [
+                  {
+                    "key_code": "hyphen",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "equal_sign"
+                },
+                "to": [
+                  {
+                    "key_code": "equal_sign",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "vim-preview: map HL (previous / next position)",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "vim-preview: map hl (left / right)",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "h"
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "l"
+                },
+                "to": [
                   {
                     "key_code": "right_arrow"
                   }
@@ -261,16 +549,40 @@
             ]
           },
           {
-            "description": "Map Command-Shift-K to Ctrl-b Up Arrow for tmux",
+            "description": "vim preview: map JK (previous / next page)",
             "manipulators": [
               {
                 "conditions": [
                   {
                     "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^co\\.zeit\\.hyper$",
-                      "^org\\.alacritty$",
-                      "^com\\.googlecode\\.iterm2$"
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_shift"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow",
+                    "modifiers": [
+                      "left_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
                     ],
                     "type": "frontmost_application_if"
                   }
@@ -279,18 +591,57 @@
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
-                      "left_command"
+                      "left_shift"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "key_code": "b",
+                    "key_code": "up_arrow",
                     "modifiers": [
-                      "left_control"
+                      "left_option"
                     ]
-                  },
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "vim-preview: map jk (down/up)",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "j"
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "^com.apple.Preview$"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "k"
+                },
+                "to": [
                   {
                     "key_code": "up_arrow"
                   }
@@ -300,155 +651,64 @@
             ]
           },
           {
-            "description": "Map Command-Shift-J to Ctrl-b Down Arrow for tmux",
+            "description": "Use left_option + ,/. to switch tabs in an application.",
             "manipulators": [
               {
                 "conditions": [
                   {
                     "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^co\\.zeit\\.hyper$",
-                      "^org\\.alacritty$",
-                      "^com\\.googlecode\\.iterm2$"
+                      "^org\\.vim\\.",
+                      "^com.googlecode.iterm2",
+                      "com.microsoft.VSCode"
                     ],
-                    "type": "frontmost_application_if"
+                    "type": "frontmost_application_unless"
                   }
                 ],
                 "from": {
-                  "key_code": "j",
+                  "key_code": "period",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
-                      "left_command"
+                      "left_option"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "key_code": "b",
+                    "key_code": "close_bracket",
                     "modifiers": [
-                      "left_control"
+                      "left_command",
+                      "left_shift"
                     ]
-                  },
-                  {
-                    "key_code": "down_arrow"
                   }
                 ],
                 "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Map Command-Shift-H to Ctrl-b Left Arrow for tmux",
-            "manipulators": [
+              },
               {
                 "conditions": [
                   {
                     "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^co\\.zeit\\.hyper$",
-                      "^org\\.alacritty$",
-                      "^com\\.googlecode\\.iterm2$"
+                      "^org\\.vim\\.",
+                      "^com.googlecode.iterm2",
+                      "com.microsoft.VSCode"
                     ],
-                    "type": "frontmost_application_if"
+                    "type": "frontmost_application_unless"
                   }
                 ],
                 "from": {
-                  "key_code": "h",
+                  "key_code": "comma",
                   "modifiers": {
                     "mandatory": [
-                      "left_shift",
-                      "left_command"
+                      "left_option"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "key_code": "b",
+                    "key_code": "tab",
                     "modifiers": [
-                      "left_control"
+                      "left_control",
+                      "left_shift"
                     ]
-                  },
-                  {
-                    "key_code": "left_arrow"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Map Command-Shift-[ to Ctrl-b p",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^co\\.zeit\\.hyper$",
-                      "^org\\.alacritty$",
-                      "^com\\.googlecode\\.iterm2$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "open_bracket",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_shift",
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "b",
-                    "modifiers": [
-                      "left_control"
-                    ]
-                  },
-                  {
-                    "key_code": "p"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Map Command-Shift-] to Ctrl-b n",
-            "manipulators": [
-              {
-                "conditions": [
-                  {
-                    "bundle_identifiers": [
-                      "^com\\.apple\\.Terminal$",
-                      "^co\\.zeit\\.hyper$",
-                      "^org\\.alacritty$",
-                      "^com\\.googlecode\\.iterm2$"
-                    ],
-                    "type": "frontmost_application_if"
-                  }
-                ],
-                "from": {
-                  "key_code": "close_bracket",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_shift",
-                      "left_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "b",
-                    "modifiers": [
-                      "left_control"
-                    ]
-                  },
-                  {
-                    "key_code": "n"
                   }
                 ],
                 "type": "basic"
@@ -480,6 +740,39 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Ctrl + spacebar  => rightarrow",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": [
+                      "com.google.Chrome"
+                    ],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "spacebar",
+                  "modifiers": {
+                    "mandatory": [
+                      "control"
+                    ],
+                    "optional": [
+                      "caps_lock",
+                      "option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
           }
         ]
       },
@@ -492,7 +785,50 @@
             "is_game_pad": false,
             "is_keyboard": true,
             "is_pointing_device": false,
-            "product_id": 834,
+            "product_id": 219,
+            "vendor_id": 1118
+          },
+          "ignore": false,
+          "manipulate_caps_lock_led": false,
+          "mouse_flip_horizontal_wheel": false,
+          "mouse_flip_vertical_wheel": false,
+          "mouse_flip_x": false,
+          "mouse_flip_y": false,
+          "mouse_swap_wheels": false,
+          "mouse_swap_xy": false,
+          "simple_modifications": [
+            {
+              "from": {
+                "key_code": "left_command"
+              },
+              "to": [
+                {
+                  "key_code": "left_option"
+                }
+              ]
+            },
+            {
+              "from": {
+                "key_code": "left_option"
+              },
+              "to": [
+                {
+                  "key_code": "left_command"
+                }
+              ]
+            }
+          ],
+          "treat_as_built_in_keyboard": false
+        },
+        {
+          "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": [],
+          "game_pad_swap_sticks": false,
+          "identifiers": {
+            "is_game_pad": false,
+            "is_keyboard": true,
+            "is_pointing_device": false,
+            "product_id": 835,
             "vendor_id": 1452
           },
           "ignore": false,
@@ -514,7 +850,7 @@
             "is_game_pad": false,
             "is_keyboard": false,
             "is_pointing_device": true,
-            "product_id": 834,
+            "product_id": 835,
             "vendor_id": 1452
           },
           "ignore": true,
@@ -556,7 +892,7 @@
           },
           "to": [
             {
-              "apple_vendor_keyboard_key_code": "mission_control"
+              "key_code": "mission_control"
             }
           ]
         },
@@ -566,7 +902,7 @@
           },
           "to": [
             {
-              "apple_vendor_keyboard_key_code": "spotlight"
+              "key_code": "launchpad"
             }
           ]
         },
@@ -576,7 +912,7 @@
           },
           "to": [
             {
-              "consumer_key_code": "dictation"
+              "key_code": "illumination_decrement"
             }
           ]
         },
@@ -586,7 +922,7 @@
           },
           "to": [
             {
-              "key_code": "f6"
+              "key_code": "illumination_increment"
             }
           ]
         },
@@ -616,7 +952,7 @@
           },
           "to": [
             {
-              "consumer_key_code": "fast_forward"
+              "consumer_key_code": "fastforward"
             }
           ]
         },
