@@ -30,7 +30,6 @@ clone_repositories_and_plugins() {
 # Function to create symbolic links
 create_symbolic_links() {
 	ln -sf "$DOTFILES_DIR/alacritty.toml" "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
-	ln -sf "$DOTFILES_DIR/alacritty_gruvbox_dark.toml" "$XDG_CONFIG_HOME/alacritty/themes/gruvbox_dark.toml"
 	ln -sf "$DOTFILES_DIR/.bash_profile" "$HOME/.bash_profile"
 	ln -sf "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
 	ln -sf "$DOTFILES_DIR/.inputrc" "$HOME/.inputrc"
@@ -38,7 +37,6 @@ create_symbolic_links() {
 	ln -sf "$DOTFILES_DIR/nvim" "$XDG_CONFIG_HOME/nvim"
 	ln -sf "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
 	ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc" # Symlink .zshrc after Oh-My-Zsh installation to prevent overwrite
-	ln -sf "$DOTFILES_DIR/helix_config.toml" "$XDG_CONFIG_HOME/helix/config.toml"
 }
 
 # Function to install packages on MacOS
