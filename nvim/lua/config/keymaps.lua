@@ -59,5 +59,5 @@ vim.keymap.set("n", "<leader>gt", "<cmd>GoTest<CR>", { desc = "Go Test" })
 vim.keymap.set("n", "<leader>hy", "i{{< youtube id >}}<Esc>", { desc = "Hugo Youtube" })
 
 -- Setting light mode
-vim.keymap.set("n", "<leader>tl", "<cmd> set background=light<cr>", { desc = "Change color mode" })
-vim.keymap.set("n", "<leader>td", "<cmd> set background=dark<cr>", { desc = "Change color mode" })
+vim.keymap.set("n", "<leader>tl", "<cmd> colorscheme dark_multi<cr>", { desc = "Change color mode" })
+vim.keymap.set("n", "<leader>td", "<cmd> colorscheme dark_mono<cr>", { desc = "Change color mode" })

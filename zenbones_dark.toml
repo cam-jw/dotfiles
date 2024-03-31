@@ -9,7 +9,7 @@ magenta = "#ebdbb2"
 cyan = "#ebdbb2"
 white = "#ebdbb2"
 [colors.cursor]
-cursor = "#ebdbb2"
+cursor = "#C4CACF"
 text = "#ebdbb2"
 [colors.normal]
 black = "#ebdbb2"
