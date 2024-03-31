@@ -4,10 +4,10 @@
 --
 vim.keymap.set("n", "<leader>p", '<cmd>lua require("cmp").setup { enabled = true }<cr>', { desc = "Enable completion" })
 vim.keymap.set(
-  "n",
-  "<leader>P",
-  '<cmd>lua require("cmp").setup { enabled = false }<cr>',
-  { desc = "Disable completion" }
+    "n",
+    "<leader>P",
+    '<cmd>lua require("cmp").setup { enabled = false }<cr>',
+    { desc = "Disable completion" }
 )
 
 -- map esc to jk for laptop use
@@ -32,10 +32,10 @@ vim.keymap.set("n", "<leader>fs", "<cmd>Telescope symbols<cr>", { desc = "Find S
 
 -- convert Current line to title cases
 vim.keymap.set(
-  "n",
-  "<leader>rlt",
-  "<cmd>lua require('textcase').current_word('to_title_case')<CR>",
-  { desc = "Replace Line Title" }
+    "n",
+    "<leader>rlt",
+    "<cmd>lua require('textcase').current_word('to_title_case')<CR>",
+    { desc = "Replace Line Title" }
 )
 -- vim.keymap.set("n", "<leader>rlt", "<cmd>s/<./\u&/g<cr>", { desc = "Replace Line Title" })
 
@@ -43,6 +43,9 @@ vim.keymap.set(
 -- from https://github.com/ThePrimeagen/init.lua
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- close buffers
+vim.keymap.set("n", "<leader>vd", ":q<ret>", { silent = true, noremap = true })
 
 -- and these are for searching
 vim.keymap.set("n", "n", "nzzzv")
