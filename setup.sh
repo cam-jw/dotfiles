@@ -38,7 +38,8 @@ create_symbolic_links() {
 	ln -sf "$DOTFILES_DIR/nvim" "$XDG_CONFIG_HOME/nvim"
 	ln -sf "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
 	ln -sf "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc" # Symlink .zshrc after Oh-My-Zsh installation to prevent overwrite
-	ln -sf "$DOTFILES_DIR/helix_config.toml" "$XDG_CONFIG_HOME/helix/config.toml" }
+	ln -sf "$DOTFILES_DIR/helix_config.toml" "$XDG_CONFIG_HOME/helix/config.toml"
+}
 
 # Function to install packages on MacOS
 install_macos_packages() {
