@@ -27,9 +27,10 @@ alias du='du -kh'  # file space
 alias df='df -kTh' # disk space
 
 # ls
-alias lla='ls -Al'
-alias lls='ls -lSr'
-alias tree='tree -Csu'
+alias ls='ls -F --color=auto'
+alias lla='ls -pAl'
+alias lls='ls -plSr'
+alias tree='tree -FCsu'
 
 # files
 alias rmd='rm -rf'
