@@ -10,6 +10,9 @@ set -o vi
 alias v=nvim
 alias h=hx
 
+# clear
+alias c='cl'
+
 # cd
 alias docs='cd ~/Documents/'
 alias ..="cd .."
@@ -24,12 +27,8 @@ alias du='du -kh'  # file space
 alias df='df -kTh' # disk space
 
 # ls
-alias l="ls -1"
-alias ls='ls -CF --color=auto'
-alias la='ls -Al'
-alias lx='ls -lXB'
-alias lk='ls -lSr'
-alias lc='ls -ltcr'
+alias lla='ls -Al'
+alias lls='ls -lSr'
 alias tree='tree -Csu'
 
 # files
